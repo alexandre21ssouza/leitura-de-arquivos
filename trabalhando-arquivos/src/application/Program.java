@@ -77,5 +77,22 @@ public class Program {
 		}
 			
 	  }
-	}
+		//Simplificando o modo acima
+		String pathh = "C:\\Users\\Alexandre\\Documents\\apresentação";
+		
+		try(BufferedReader brr = new BufferedReader(new FileReader(path))) {
+
+			String linee = brr.readLine();
+
+			while(linee != null) {
+				System.out.println(linee);
+				linee = brr.readLine();
+			}
+			
+		} catch(IOException e) {
+			System.out.println("Error: " + e.getMessage());
+			
+		}
+		
+			}
 }
