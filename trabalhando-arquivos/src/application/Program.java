@@ -1,8 +1,10 @@
 package application;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -94,5 +96,32 @@ public class Program {
 			
 		}
 		
+		
+		//Criando Arquivo no programa
+		
+		String[] lines = new String[] {"BOm dia", "Boa tarde", "Boa noite"};
+		
+		//Endereço de armazenamento do arquivo criado
+		String pathhh = "c:\\temp\\out.txt";
+		
+		/*True indica que o arquivo não deve ser recriado
+		 *  todas as vezes que rodar o programa, mas sim 
+		 *  salvar no final. 
+		 */
+		try(BufferedWriter bw = new BufferedWriter(new FileWriter(pathhh, true))) {
+
+	
+			for(String line : lines) {
+				//Escreve o array
+				bw.write(line);
+				//Faz ir para a linha de baixo a cada item 
+				bw.newLine();
 			}
+			
+		} catch(IOException e) {
+			System.out.println("Error: " + e.getMessage());
+			
+		}
+	}
 }
+
